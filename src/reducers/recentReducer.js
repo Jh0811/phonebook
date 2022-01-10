@@ -1,0 +1,16 @@
+export function recentReducer(state = [], action) {
+    const maxSize=12;
+    switch(action.type) {
+        
+        case 'ADD_RECENT':
+            let newState = [...state]
+             if(newState.length===maxSize){
+                 newState.shift()
+             }
+             newState.push(action.payload)
+            return newState 
+
+            default:
+                return state
+    }
+}
